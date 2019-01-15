@@ -1,6 +1,9 @@
 import java.util.Scanner;
-
-public class Main_1012_À¯±â³ó¹èÃß_¹Ú¼öºó {
+/*
+ë°°ì¶”ë¥¼ ì‹¬ì€ ê³³ì„ ë°œê²¬í•˜ë©´ ì´ë¯¸ ë°©ë¬¸í•œ ê³³ì¸ì§€ë¥¼ í™•ì¸í•˜ê³  ì•„ë‹ˆë¼ë©´ ë‹µì„ 1 
+dfsë¥¼ í†µí•´ ìƒí•˜ì¢Œìš°ì— ë°°ì¶”ê°€ ì‹¬ì–´ì§„ ê³³ì„ í™•ì¸í•˜ì—¬ ë°©ë¬¸í•œ ê³³ìœ¼ë¡œ ë°”ê¾¼ë‹¤
+*/
+public class Main_1012_ìœ ê¸°ë†ë°°ì¶”_ë°•ìˆ˜ë¹ˆ {
 	static int[][] arr;
 	static boolean[][] visited;
 	static int[] dx = { 1, -1, 0, 0 };
@@ -29,11 +32,11 @@ public class Main_1012_À¯±â³ó¹èÃß_¹Ú¼öºó {
 
 			int K = sc.nextInt();
 			for (int i = 0; i < K; i++)
-				arr[sc.nextInt() + 1][sc.nextInt() + 1] = 1;// ¹èÃß¸¦ ½ÉÀº °÷
+				arr[sc.nextInt() + 1][sc.nextInt() + 1] = 1;// ë°°ì¶”ë¥¼ ì‹¬ì€ ê³³
 
 			for (int i = 1; i < M + 1; i++) {
 				for (int j = 1; j < N + 1; j++) {
-					if (arr[i][j] == 1 && !visited[i][j]) {// ¹èÃß¸¦ ½É¾ú°í ¾ÆÁ÷ È®ÀÎÇÏÁö ¾ÊÀº °÷
+					if (arr[i][j] == 1 && !visited[i][j]) {// ë°°ì¶”ë¥¼ ì‹¬ì—ˆê³  ì•„ì§ í™•ì¸í•˜ì§€ ì•Šì€ ê³³
 						ans++;
 						dfs(i, j);
 					}
