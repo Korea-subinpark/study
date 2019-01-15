@@ -1,5 +1,9 @@
 import java.util.Scanner;
- 
+/*
+비트들을 문자열로 저장하고
+0에서 1 또는 1에서 0으로 반전되는 순간을 카운트한다
+만약 1로 시작했을 경우에는 1을 더 증가시킨다
+*/
 public class Solution {
  
     public static void main(String[] args) {
