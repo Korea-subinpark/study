@@ -1,7 +1,10 @@
 import java.util.Scanner;
 import java.util.Stack;
-
-public class Solution_1218_��ȣ¦����_�ڼ��� {
+/*
+괄호를 여는 경우 Stack에 push한다
+괄호를 닫는 경우 종류를 구분하여 pop을 했을 때 같은 종류 괄호가 아니라면 짝이 맞지 않는 것이다
+*/
+public class Solution_1218 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
