@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Solution_6719_¼º¼öÀÇÇÁ·Î±×·¡¹Ö°­ÁÂ½ÃÃ»_¹Ú¼öºó {
+public class Solution_6719_ì„±ìˆ˜ì˜í”„ë¡œê·¸ë˜ë°ê°•ì¢Œì‹œì²­_ë°•ìˆ˜ë¹ˆ {
 	static int[] arr;
 	
 	static int maxVal() {
