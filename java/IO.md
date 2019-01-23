@@ -100,6 +100,3 @@ class Person implements Serializable { //직렬화 조건
     private LoginInfo lInfo;//직렬화 필요 
 }
 ```
-
-<hr>
-
