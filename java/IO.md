@@ -100,3 +100,9 @@ class Person implements Serializable { //직렬화 조건
     private LoginInfo lInfo;//직렬화 필요 
 }
 ```
+
+<hr>
+
+## 상속
+* 자식 클래스에서 부모 클래스보다 더 큰 Exception을 발생시켜서는 안된다
+
