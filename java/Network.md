@@ -40,27 +40,27 @@ import java.net.Socket;
  */
 public class SimpleServer {
 
-    public static void main(String[] args) throws Exception {
-        ServerSocket server;//서버 역할
-        Socket client;//서버로 접속해 들어온 클라이언트를 받을 객체
-        OutputStream out;//node stream
-        DataOutputStream dos;//filter stream
-        String message = "hello, world 입니다";//클라이언트에 보낼 메세지
-        
-        server = new ServerSocket(3000);//3000번 포트에서 실행
-        System.out.println("클라이언트를 기다리는 중...");
-        client = server.accept();//클라이언트가 접속해 올 때까지 기다렸다가 클라이언트를 받음. block 되는 특징
-        System.out.println("클라이언트 접속!");
-        
-        out = client.getOutputStream();
-        dos = new DataOutputStream(out);
-        
-        dos.writeUTF(message);
-        dos.close();
-        out.close();
-        client.close();
-        server.close();
-    }
+	public static void main(String[] args) throws Exception {
+		ServerSocket server;//서버 역할
+		Socket client;//서버로 접속해 들어온 클라이언트를 받을 객체
+		OutputStream out;//node stream
+		DataOutputStream dos;//filter stream
+		String message = "hello, world 입니다";//클라이언트에 보낼 메세지
+
+		server = new ServerSocket(3000);//3000번 포트에서 실행
+		System.out.println("클라이언트를 기다리는 중...");
+		client = server.accept();//클라이언트가 접속해 올 때까지 기다렸다가 클라이언트를 받음. block 되는 특징
+		System.out.println("클라이언트 접속!");
+
+		out = client.getOutputStream();
+		dos = new DataOutputStream(out);
+
+		dos.writeUTF(message);
+		dos.close();
+		out.close();
+		client.close();
+		server.close();
+	}
 
 }
 ```
@@ -86,17 +86,17 @@ public class SimpleClient {
 		Socket client;
 		InputStream in;
 		DataInputStream dis;
-		
+
 		//127.0.0.1: loopback address
 		client = new Socket("localhost", 3000);//소켓 객체가 만들어 지는 순간 서버로 접속해 들어간다
 		in = client.getInputStream();
 		dis = new DataInputStream(in);
-		
+
 		String message = dis.readUTF();
 		System.out.println(message);
-		
+
 		dos.writeUTF(message);
-		
+
 		dis.close();
 		in.close();
 		client.close();
