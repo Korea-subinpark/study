@@ -132,7 +132,7 @@ BLOCKED 객체는 lock pool에서 대기하고 있다가 객체의 lock이 반�
 
 |메서드 명|선언부와 설명|
 |:-:|:-:|
-wait()|`public final void wait() InterruptedException`<br>다른 thread가 notify(), notifyAll()을 호출하기 전까지 현재 thread를 WAITING 상태로 유지한다|
+wait()|<pre>public final void wait() InterruptedException`<code><br>다른 thread가 notify(), notifyAll()을 호출하기 전까지 현재 thread를 WAITING 상태로 유지한다|
 notify()|`public final native void notify()`<br>이 객체의 lock이 필요한 thread 하나를 WAITING 상태에서 RUNNABLE 상태로 변경한다|
 notifyAll()|`public final native void notifyAll()`<br>이 객체의 lock이 필요한 모든 thread를 WAITING 상태에서 RUNNABLE 상태로 변경한다|
 
