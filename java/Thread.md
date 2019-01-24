@@ -11,5 +11,5 @@
     * 컨텍스트 스위칭 비용 발생
     * thread 제어의 어려움
 
-![thread](./img/thread.png)
+![thread](/img/thread.png)
 
