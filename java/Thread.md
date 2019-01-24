@@ -80,3 +80,59 @@ public class LionTest {
 
 <hr>
 
+## thread 우선 순위
+```java
+public class MainThreadTest implements Runnable {
+	
+    MainThreadTest() {
+        //thread 생성하고 start
+        Thread t = new Thread(this);
+        t.start();
+    }
+
+    public static void main(String[] args) {
+        MainThreadTest m = new MainThreadTest();
+        m.go();
+    }
+
+    private void go() {
+        System.out.println("gogogo~~~");
+    }
+
+    @Override
+    public void run() {//thread가 실행하는 메소드
+        System.out.println("run by thread...");
+    }
+
+}
+```
+* 위 코드를 실행하면 Main thread의 우선 순위가 높기 때문에 go함수가 run함수보다 먼저 실행된다
+
+```java
+MainThreadTest() {
+    //thread 생성하고 start
+    Thread t = new Thread(this);
+    t.start();
+    try {
+        t.join();//t를 기다린다
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+```
+* join함수를 사용하면 Main thread가 t thread의 작업이 끝날 때까지 기다리게 된다
+
+<hr>
+
+## Multi Thread 데이터 공유와 동기화 문제
+* 공유 데이터에 여러 thread가 동시에 접근해서 수정하면 문제가 발생하게 된다
+* lock pool
+synchronized 블록을 실행하면서 lock을 획득하지 못한 thread는 lock이 객체에 돌아오기 전까지 실행할 수 없는 BLOCKED 상태가 된다<br>
+BLOCKED 객체는 lock pool에서 대기하고 있다가 객체의 lock이 반납되면 다시 RUNNABLE 상태로 변경 후 실행될 수 있다
+
+|메서드 명|선언부와 설명|
+|:-:|:-:|
+wait()|```public final void wait() InterruptedException```<br>다른 thread가 notify(), notifyAll()을 호출하기 전까지 현재 thread를 WAITING 상태로 유지한다|
+notify()|```public final native void notify()```<br>이 객체의 lock이 필요한 thread 하나를 WAITING 상태에서 RUNNABLE 상태로 변경한다|
+notifyAll()|```public final native void notifyAll()```<br>이 객체의 lock이 필요한 모든 thread를 WAITING 상태에서 RUNNABLE 상태로 변경한다|
+
