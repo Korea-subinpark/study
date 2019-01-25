@@ -67,4 +67,4 @@ public class UITest {
 }
 ```
 
-![UITest](img/uitest.PNG)
+![UITest](/img/uitest.PNG)
