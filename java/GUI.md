@@ -30,7 +30,7 @@ ex) JButton
 ## UI Test
 
 ```java
-public class UITest {
+public class ChatTest {
 	//field
 	JFrame f;//창
 	JButton ok, cancel;//버튼
@@ -39,32 +39,62 @@ public class UITest {
 	JLabel label;//화면 상에서의 글자
 	
 	//gui(화면) 작성
-	UITest() {
-		f = new JFrame("swing test");//title bar에 글자 넣으면서 창 생성
+	ChatTest() {
+		f = new JFrame("Char Test");//title bar에 글자 넣으면서 창 생성
 		f.setLayout(new BorderLayout());//layout manager 지정. FlowLayout -> add 하는 순서대로 화면에 배치
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//창닫기 버튼 눌렀을 때 할일 지정. 닫기 버튼 누르면 프로그램 종료
 		
-		ok = new JButton("ok");
+		ok = new JButton("전송");
 		cancel = new JButton("cancel");
-		label = new JLabel("hello swing");
+		label = new JLabel("Chat Test", JLabel.CENTER);
+		Font font = new Font("맑은 고딕", Font.BOLD, 30);
+		label.setFont(font);
 		tf = new JTextField(30);//30글자 들어갈 정도
 		ta = new JTextArea(5, 30);//30글자 5줄
+		ta.setEditable(false);//편집 안됨
+		ta.setBackground(Color.GRAY);
+		
+		JPanel panel = new JPanel(new FlowLayout());//container. 내부에 다른 화면 구성요소를 담을 수 있다
+		panel.add(tf);
+		panel.add(ok);
+		
 		JScrollPane pane = new JScrollPane(ta);
 		Container c = f.getContentPane();//화면상에서 ContentPane 영역을 알아낸다
-		c.add(ok, "East");
-		c.add(cancel, "West");
+		//c.add(ok, "East");
+		//c.add(cancel, "West");
 		c.add(label, "North");
 		c.add(pane, "Center");
-		c.add(tf, "South");
-		f.setSize(300, 300);
+		c.add(panel, "South");
+		f.setSize(450, 500);
 		f.setVisible(true);
 	}
 	
 	public static void main(String[] args) {
-		UITest u = new UITest();
+		ChatTest u = new ChatTest();
 	}
 
 }
 ```
 
 ![UITest](/img/uitest.PNG)
+
+
+---
+## Event Handling
+* 화면을 구성하고 있는 컴포넌트들에 대해 발생하는 사건(이벤트)에 대한 처리
+* Event Handler
+    * Event 감시/처리자
+
+|Component|Event|Listener|
+|---|---|---|
+JButton,<br>JtextField|ActionEvent|ActionListener|
+JList|ListSelectionEvent|ListSelectionEvent|
+Window|WindowEvent|WindowListener|
+
+### 처리 순서
+1. 이벤트 처리 클래스 정의
+    * Listener implements
+2. Event 발생 컴포넌트에 Listener 등록
+3. Listener 추상 메소드 구현
+    * Event 발생시 원하는 처리작업 기술
+
