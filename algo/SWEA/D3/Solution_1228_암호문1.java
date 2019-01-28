@@ -2,8 +2,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
-
-public class Solution_1228_SW¹®Á¦ÇØ°á±âº»8ÀÏÂ÷_¾ÏÈ£¹®1_¹Ú¼öºó {
+/*
+linkedlistë¥¼ ì´ìš©
+*/
+public class Solution_1228_ì•”í˜¸ë¬¸1 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,8 +25,8 @@ public class Solution_1228_SW¹®Á¦ÇØ°á±âº»8ÀÏÂ÷_¾ÏÈ£¹®1_¹Ú¼öºó {
 			st = new StringTokenizer(br.readLine(), " ");
 			for(int i = 0; i < L; i++) {
 				st.nextToken();//I
-				int s = Integer.parseInt(st.nextToken());//»ğÀÔÀ§Ä¡
-				int num = Integer.parseInt(st.nextToken());//°³¼ö
+				int s = Integer.parseInt(st.nextToken());//ì‚½ì…ìœ„ì¹˜
+				int num = Integer.parseInt(st.nextToken());//ê°œìˆ˜
 				for(int j = s; j < s + num; j++) {
 					list.add(j, Integer.parseInt(st.nextToken()));
 				}
