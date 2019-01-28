@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main_1107_리모컨_박수빈 {
+public class Main_1107_리모컨 {
 	static boolean[] button = new boolean[10];
 
 	static int moveChanel(int ch) {
