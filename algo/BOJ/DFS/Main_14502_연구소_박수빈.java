@@ -2,15 +2,19 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
-public class Main_14502_¿¬±¸¼Ò_¹Ú¼öºó {
+/*
+ë²½ì„ ì„¸ìš¸ ìˆ˜ ìˆëŠ” ëª¨ë“  ìœ„ì¹˜ì˜ ì¢Œí‘œë¥¼ ì €ì¥í•˜ê³ 
+ëª¨ë“  ê²½ìš°ì˜ ìˆ˜ë¥¼ íƒìƒ‰í•˜ì—¬
+ì•ˆì „ ì˜ì—­ ìµœëŒ€ í¬ê¸°ë¥¼ 
+*/
+public class Main_14502_ì—°êµ¬ì†Œ {
 	static int[][] arr;
-	static ArrayList<int[]> xy;//ºó Ä­ÀÇ ÁÂÇ¥
+	static ArrayList<int[]> xy;//ë¹ˆ ì¹¸ì˜ ì¢Œí‘œ
 	static boolean[][] visited;
 	static int[] dx = {1,-1,0,0};
 	static int[] dy = {0,0,1,-1};
-	static int zeroCnt, tempCnt;//ºó Ä­ÀÇ °³¼ö
-	static int maxCnt;//¾ÈÀü ¿µ¿ª ÃÖ´ë Å©±â
+	static int zeroCnt, tempCnt;//ë¹ˆ ì¹¸ì˜ ê°œìˆ˜
+	static int maxCnt;//ì•ˆì „ ì˜ì—­ ìµœëŒ€ í¬ê¸°
 	static int N, M;
 	
 	public static void dfs(int x, int y) {
@@ -39,7 +43,7 @@ public class Main_14502_¿¬±¸¼Ò_¹Ú¼öºó {
 			st = new StringTokenizer(br.readLine(), " ");
 			for(int j = 1; j < M + 1; j++) {
 				arr[i][j] = Integer.parseInt(st.nextToken());
-				if(arr[i][j] == 0) {//ºó Ä­ÀÇ ÁÂÇ¥¸¦ ÀúÀå
+				if(arr[i][j] == 0) {//ë¹ˆ ì¹¸ì˜ ì¢Œí‘œë¥¼ ì €ì¥
 					int[] temp = {i, j};
 					xy.add(temp);
 					zeroCnt++;
@@ -60,17 +64,17 @@ public class Main_14502_¿¬±¸¼Ò_¹Ú¼öºó {
 			for(int j = i + 1; j < xy.size() - 1; j++) {
 				for(int k = j + 1; k < xy.size(); k++) {
 					visited = new boolean[N + 2][M + 2];
-					int x1 = xy.get(i)[0];//1¹ø º®ÀÇ ÁÂÇ¥
+					int x1 = xy.get(i)[0];//1ë²ˆ ë²½ì˜ ì¢Œí‘œ
 					int y1 = xy.get(i)[1];
-					int x2 = xy.get(j)[0];//2¹ø º®ÀÇ ÁÂÇ¥
+					int x2 = xy.get(j)[0];//2ë²ˆ ë²½ì˜ ì¢Œí‘œ
 					int y2 = xy.get(j)[1];
-					int x3 = xy.get(k)[0];//3¹ø º®ÀÇ ÁÂÇ¥
+					int x3 = xy.get(k)[0];//3ë²ˆ ë²½ì˜ ì¢Œí‘œ
 					int y3 = xy.get(k)[1];
 					
-					arr[x1][y1] = 1;//º® ¼³Ä¡
+					arr[x1][y1] = 1;//ë²½ ì„¤ì¹˜
 					arr[x2][y2] = 1;
 					arr[x3][y3] = 1;
-					tempCnt = zeroCnt - 3; //ÃÊ±â ºó Ä­ °³¼ö¿¡¼­ Ãß°¡µÈ º® °³¼ö 3 »©±â
+					tempCnt = zeroCnt - 3; //ì´ˆê¸° ë¹ˆ ì¹¸ ê°œìˆ˜ì—ì„œ ì¶”ê°€ëœ ë²½ ê°œìˆ˜ 3 ë¹¼ê¸°
 					
 					for(int x = 1; x < N + 1; x++) {
 						for(int y = 1; y < M + 1; y++) {
@@ -80,10 +84,10 @@ public class Main_14502_¿¬±¸¼Ò_¹Ú¼öºó {
 						}
 					}
 					
-					if(maxCnt < tempCnt) {//¾ÈÀü ¿µ¿ª ÃÖ´ë Å©±â ¾÷µ¥ÀÌÆ®
+					if(maxCnt < tempCnt) {//ì•ˆì „ ì˜ì—­ ìµœëŒ€ í¬ê¸° ì—…ë°ì´íŠ¸
 						maxCnt = tempCnt;
 					}
-					arr[x1][y1] = 0;//¿ø»ó º¹±Í
+					arr[x1][y1] = 0;//ì›ìƒ ë³µê·€
 					arr[x2][y2] = 0;
 					arr[x3][y3] = 0;
 				}
