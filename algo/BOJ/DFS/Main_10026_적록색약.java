@@ -1,24 +1,24 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main_10026_Àû·Ï»ö¾à_¹Ú¼öºó {
+public class Main_10026_ì ë¡ìƒ‰ì•½_ë°•ìˆ˜ë¹ˆ {
 	static boolean[][] visited;
 	static int[] dx = {1,-1,0,0};
 	static int[] dy = {0,0,1,-1};
-	static int ans;//±¸¿ª ¼ö
+	static int ans;//êµ¬ì—­ ìˆ˜
 	
 	public static void dfs(char[][] arr, int x, int y) {
 		if(!visited[x][y]) {
 			visited[x][y] = true;
 			char c = arr[x][y];
-			for(int i = 0; i < 4; i++) {//ÁÖº¯ ¼øÈ¸
+			for(int i = 0; i < 4; i++) {//ì£¼ë³€ ìˆœíšŒ
 				int nx = x + dx[i];
 				int ny = y + dy[i];
 				if(arr[nx][ny] == c) {
 					dfs(arr, nx, ny);
 				}
 			}
-			if(c == 'G')//Àû·Ï»ö¾à¿ë arr¸¦ ¸¸µé±â À§ÇØ G¸¦ R·Î º¯°æ
+			if(c == 'G')//ì ë¡ìƒ‰ì•½ìš© arrë¥¼ ë§Œë“¤ê¸° ìœ„í•´ Gë¥¼ Rë¡œ ë³€ê²½
 				arr[x][y] = 'R';
 		}
 	}
@@ -36,11 +36,11 @@ public class Main_10026_Àû·Ï»ö¾à_¹Ú¼öºó {
 			}
 		}
 		
-		for(int i = 1; i < N + 1; i++) {//ÀÏ¹İÀÎ dfs
+		for(int i = 1; i < N + 1; i++) {//ì¼ë°˜ì¸ dfs
 			for(int j = 1; j < N + 1; j++) {
 				if(!visited[i][j]) {
 					dfs(arr, i, j);
-					ans++;//±¸¿ª ¼ö Áõ°¡
+					ans++;//êµ¬ì—­ ìˆ˜ ì¦ê°€
 				}
 			}
 		}
@@ -49,7 +49,7 @@ public class Main_10026_Àû·Ï»ö¾à_¹Ú¼öºó {
 		ans = 0;
 		visited = new boolean[N + 1][N + 1];
 		
-		for(int i = 1; i < N + 1; i++) {//Àû·Ï»ö¾à dfs
+		for(int i = 1; i < N + 1; i++) {//ì ë¡ìƒ‰ì•½ dfs
 			for(int j = 1; j < N + 1; j++) {
 				if(!visited[i][j]) {
 					dfs(arr, i, j);
