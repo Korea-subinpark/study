@@ -1,8 +1,10 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
-public class Solution_1233_SW¹®Á¦ÇØ°á±âº»9ÀÏÂ÷_»çÄ¢¿¬»êÀ¯È¿¼º°Ë»ç_¹Ú¼öºó {
+/*
+ë£¨íŠ¸ê°€ ìˆ«ìì¼ ê²½ìš°ì™€ ìì´ ì—°ì‚°ìì¸ ê²½ìš° ì‹¤íŒ¨ë¡œ ì¶œë ¥
+*/
+public class Solution_1233 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,15 +16,15 @@ public class Solution_1233_SW¹®Á¦ÇØ°á±âº»9ÀÏÂ÷_»çÄ¢¿¬»êÀ¯È¿¼º°Ë»ç_¹Ú¼öºó {
 			for(int i = 0; i < N; i++) {
 				StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 				int num = Integer.parseInt(st.nextToken());
-				if(num == 1) {//·çÆ® °Ë»ç
+				if(num == 1) {//ë£¨íŠ¸ ê²€ì‚¬
 					char c = st.nextToken().charAt(0);
-					if(48 <= c && c >= 57) {//·çÆ®°¡ ¼ıÀÚÀÏ °æ¿ì ½ÇÆĞ
+					if(48 <= c && c >= 57) {//ë£¨íŠ¸ê°€ ìˆ«ìì¼ ê²½ìš° ì‹¤íŒ¨
 						ans = 0;
 					}
 				}
 				if(st.countTokens() == 1) {
 					char c = st.nextToken().charAt(0);
-					if(c < 48 || c > 57) {//ÀÙ ³ëµå°¡ ¿¬»êÀÚÀÏ °æ¿ì ½ÇÆĞ
+					if(c < 48 || c > 57) {//ì ë…¸ë“œê°€ ì—°ì‚°ìì¼ ê²½ìš° ì‹¤íŒ¨
 						ans = 0;
 					}
 				}
