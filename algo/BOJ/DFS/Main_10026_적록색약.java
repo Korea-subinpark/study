@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main_10026_적록색약_박수빈 {
+public class Main_10026_적록색약 {
 	static boolean[][] visited;
 	static int[] dx = {1,-1,0,0};
 	static int[] dy = {0,0,1,-1};
