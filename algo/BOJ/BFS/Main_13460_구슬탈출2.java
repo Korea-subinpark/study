@@ -60,7 +60,7 @@ class Main_13460_구슬탈출2 {
 				
 				if(arr[nbx][nby] == 'O') continue;//파란 구슬이 구멍에 빠진 경우 넘어간다
 
-				if (arr[nrx][nry] != 'O' && nrx == nbx && nry == nby) { // 두 구슬이 같은 위치에 있는 경우 (동시에 구멍에 빠진 경우 제외)
+				if (nrx == nbx && nry == nby) { // 두 구슬이 같은 위치에 있는 경우
 					int red_len = Math.abs(nrx - temp.rx) + Math.abs(nry - temp.ry);// 각 구슬의 이동 거리를 저장
 					int blue_len = Math.abs(nbx - temp.bx) + Math.abs(nby - temp.by);
 					if (red_len < blue_len) {// 더 많이 이동한 구슬이 더 늦게 도착한 것이므로 한 칸 이전으로 이동
