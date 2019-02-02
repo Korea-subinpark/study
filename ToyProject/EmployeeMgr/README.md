@@ -110,10 +110,10 @@ public void delete(int num) throws RecordNotFoundException ->
 
 # Class Diagram
 
-[!cld](/img/EmpMgr.PNG)
+![cld](/img/EmpMgr.PNG)
 
 
 ---
 # 실행 결과
 
-[!run](/img/EmpMgrRun.PNG)
+![run](/img/EmpMgrRun.PNG)
