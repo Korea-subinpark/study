@@ -48,7 +48,7 @@ Java에서 학습하였던 내용 중<br>
 
 # Class Description
 
-## EmPloyee
+## Employee
 * 사원 정보를 저장하는 객체
 * empNo(사번), name(이름), position(직책), dept(부서) 저장
 * Encapsulation 적용
