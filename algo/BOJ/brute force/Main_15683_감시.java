@@ -9,6 +9,7 @@ public class Main_15683_감시 {
 	static int[][] ccty;//ccty 번호와 좌표 저장
 	static int cctyNum;//ccty 개수
 	static int ans;
+	static int[] loop = {0,4,2,4,4,1};//ccty 번호마다 필요한 반복문 횟수
 	
 	public static int cntZero() {//사각지대를 세는 함수
 		int cnt = 0;
@@ -68,7 +69,7 @@ public class Main_15683_감시 {
 		for(int i = 0; i < N; i++) //배열 복사
 			temp[i] = Arrays.copyOf(arr[i], M);
 		
-		for(int i = 0; i < 4; i++) {//4방향에 대하여 감시
+		for(int i = 0; i < loop[ccty[idx][0]]; i++) {//각 ccty마다 필요한만큼 감시
 			switch(ccty[idx][0]) {
 			case 1:
 				observe(ccty[idx][1], ccty[idx][2], i);//한 가지 방향만 감시
