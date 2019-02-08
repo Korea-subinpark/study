@@ -8,9 +8,6 @@ import java.util.List;
 dfs방법으로 구현했으나 시간이 오래 걸려서 비트마스크 방법으로 변경하였다
 모든 경우의 수를 체크하여 슈퍼키의 집합을 만들고
 마지막에 최소성을 체크하여 후보키의 개수를 반환한다
-
-class의 field 부분에 변수를 선언했을 때 몇몇 테스트 케이스에서 런타임 에러가 발생하여
-지역변수로 변경하였다
 */
 class Solution {
 //  int row;
@@ -61,7 +58,7 @@ class Solution {
         List<Integer> superkey = new LinkedList<>();
 
 //        for(int i = 0; i < row; i++)
-//          temp[i] = Arrays.copyOf(relation[i], row);
+//          temp[i] = Arrays.copyOf(relation[i], col);
 
 
         for(int i = 1; i < 1 << col; i++) {
