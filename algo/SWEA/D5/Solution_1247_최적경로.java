@@ -12,7 +12,7 @@ class Position {
 	}
 }
 
-public class Solution_1247_ÃÖÀû°æ·Î {
+public class Solution_1247_ìµœì ê²½ë¡œ {
 	
 	static int N;
 	static Position home;
