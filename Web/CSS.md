@@ -60,10 +60,27 @@
     </body>
     ```
     * 중복이 불가능하여 재활용성이 떨어진다
-
+---
 ## CSS의 포맷팅 모델(box model)
 ![box-model](/img/box-model.png)
 
 * width는 브라우저마다 다르다
-    * chrome은 content
+    * chrome은 content까지
     * explore는 padding까지
+
+<br>
+
+```css
+    p {
+        padding: 30px;
+        margin: 20px;
+        border: 3px;
+    }
+```
+* 여백 규칙
+* 하나만 썼을 경우 -> 4방향 모두 여백 주기
+* 두 개를 썼을 경우 -> 상하, 좌우로 묶어서 여백 주기
+* 네 개를 썼을 경우 -> 위부터 시계방향으로 여백 주기
+
+---
+
