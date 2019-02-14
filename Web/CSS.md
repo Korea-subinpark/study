@@ -62,7 +62,7 @@
     * 중복이 불가능하여 재활용성이 떨어진다
 ---
 ## CSS의 포맷팅 모델(box model)
-![box-model](/img/box-model.png)
+![box-model](box-model.png)
 
 * width는 브라우저마다 다르다
     * chrome은 content까지
@@ -84,3 +84,15 @@
 
 ---
 
+## Position
+* position을 선언하지 않으면 기본 값이 static 이기 때문에 left, top 등을 조정해도 변화가 없다
+```css
+.box2{
+    position: relative;
+    float: left;
+    left: -50px;
+    top: 50px;
+    background-color: #0094ff;
+    border: 2px solid blue;
+}
+```
