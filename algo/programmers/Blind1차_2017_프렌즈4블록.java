@@ -21,7 +21,7 @@ class Position implements Comparable<Position> {
     
     @Override
     public int hashCode() {
-        String s = x + "" + y + "";
+        String s = x + "101" + y + "";
         return Integer.parseInt(s);
     }
     
