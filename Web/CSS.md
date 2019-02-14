@@ -96,3 +96,44 @@
     border: 2px solid blue;
 }
 ```
+
+---
+
+## Reponsive Web
+* 해상도에 따라서 웹 페이지 배치가 달라진다
+* PC, mobile, tablet 등
+
+```html
+<head>
+    <title>Responsive Web Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 반응형 웹: 미디어 쿼리를 사용해 장치를 구분하고 장치늬 크기나 비율 등도 고려해서 CSS를 적용하는 웹 사이트 -->
+  	<style type="text/css">
+  	@media screen and (max-width: 767px) { /*0-767 pixel*/
+            html {
+                background: red;
+                color: white; 
+                font-weight: bold;
+            }
+        }
+        
+ 		/*768-979 pixel, ipad가 수직일 때 768*/
+        @media screen and (min-width: 768px) and (max-width: 959px) {
+            html {
+                background-color: green;
+                color: white; 
+                font-weight: bold;
+            }
+        }
+        
+  		/*980- pixel, 일반 브라우저의 경우*/
+        @media screen and (min-width: 980px) {
+            html {
+            	background-color: blue;
+            	color: white;
+            	font-weight: bold;
+            }
+        }
+  	</style>
+</head>
+```
