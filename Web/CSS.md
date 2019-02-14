@@ -62,7 +62,7 @@
     * 중복이 불가능하여 재활용성이 떨어진다
 ---
 ## CSS의 포맷팅 모델(box model)
-![box-model](box-model.png)
+![box-model](/img/box-model.png)
 
 * width는 브라우저마다 다르다
     * chrome은 content까지
