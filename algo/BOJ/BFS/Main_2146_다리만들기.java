@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 DFS로 섬에서 바다와 맞닿는 부분의 좌표를 Queue에 저장하고
 다시 BFS로 다른 섬까지의 거리를 구하였다
 처음엔 DFS를 재귀함수로 구현하고 visited배열도 각각 만들었지만
-메모리 낭비가 심해서 섬에 번호를 붙이는 
+메모리 낭비가 심해서 섬에 번호를 붙여서 섬 전체를 그 번호로 바꾸는 방법으로 구현하였다.
 */
 public class Main_2146_다리만들기 {
 
@@ -31,14 +31,14 @@ public class Main_2146_다리만들기 {
 	}
 	
 	public static void dfs() {
-		Position temp = s.pop();
-		for(int i = 0; i < 4; i++) {
+		Position temp = s.pop();//stack에서 좌표 하나를 pop
+		for(int i = 0; i < 4; i++) {//주변 순회
 			int nx = temp.x + dx[i];
 			int ny = temp.y + dy[i];
-			arr[temp.x][temp.y] = islandNum;
-			if(arr[nx][ny] == 1) {
+			arr[temp.x][temp.y] = islandNum;//섬에 번호 부여
+			if(arr[nx][ny] == 1) {//같은 섬일 경우 좌표를 stack에 push
 				s.push(new Position(nx, ny, 0));
-			} else if(!visited[temp.x][temp.y] && arr[nx][ny] == 0) {
+			} else if(!visited[temp.x][temp.y] && arr[nx][ny] == 0) {//바다를 만났을 경우 Queue에 add
 				visited[temp.x][temp.y] = true;
 				q.add(new Position(temp.x, temp.y, 0));
 			}
@@ -46,16 +46,16 @@ public class Main_2146_다리만들기 {
 	}
 	
 	public static void bfs(int x, int y, int len) {
-		if(min < len)
+		if(min < len)//현재까지 구한 최소값보다 클 경우 백트래킹
 			return;
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < 4; i++) {//주변 순회
 			int nx = x + dx[i];
 			int ny = y + dy[i];
-			if(arr[nx][ny] == 1) {
-				if(min > len) 
+			if(arr[nx][ny] == 1) {//육지를 만났을 경우
+				if(min > len) //최소값 업데이트
 					min = len;
 				return;
-			} else if(!visited[nx][ny] && arr[nx][ny] == 0) {
+			} else if(!visited[nx][ny] && arr[nx][ny] == 0) {//계속 바다일 경우 
 				visited[nx][ny] = true;
 				q.add(new Position(nx, ny, len + 1));
 			}
@@ -91,20 +91,19 @@ public class Main_2146_다리만들기 {
 			for(int j = 1; j <= N; j++) {
 				if(arr[i][j] == 1) {
 					s.push(new Position(i, j, 0));
-					while(!s.isEmpty()) {
+					while(!s.isEmpty()) {//dfs로 하나의 섬에 대하여 바다와 맞닿은 곳의 좌표를 구한다.
 						dfs();
 					}
-					
-					while(!q.isEmpty()) {
+
+					while(!q.isEmpty()) {//바다와 맞닿은 곳의 좌표부터 다른 섬을 만날 때까지 bfs
 						Position temp = q.poll();
 						bfs(temp.x, temp.y, temp.len);
 					}
-					islandNum++;
+					islandNum++;//섬 번호 증가
 				}
 			}
 		}
-		
-		System.out.println(min);
+		System.out.println(min);//결과 출력
 	}
 
 
