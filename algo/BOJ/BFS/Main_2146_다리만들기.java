@@ -4,20 +4,25 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 import java.util.StringTokenizer;
-
-public class Main_2146_�ٸ������ {
+/*
+DFS로 섬에서 바다와 맞닿는 부분의 좌표를 Queue에 저장하고
+다시 BFS로 다른 섬까지의 거리를 구하였다
+처음엔 DFS를 재귀함수로 구현하고 visited배열도 각각 만들었지만
+메모리 낭비가 심해서 섬에 번호를 붙이는 
+*/
+public class Main_2146_다리만들기 {
 
 	static int[][] arr;
-	static int islandNum = 2;//�� ���� ��ȣ
-	static Queue<Position> q;//�ٴٿ� �´��� ���� ��ǥ�� ���� �� bfs
-	static Stack<Position> s;//dfs�� ���� stack
-	static boolean[][] visited;//bfs �ߺ� üũ
+	static int islandNum = 2;//각 섬의 번호
+	static Queue<Position> q;//바다와 맞닿은 육지 좌표를 저장 후 bfs
+	static Stack<Position> s;//dfs를 위한 stack
+	static boolean[][] visited;//bfs 중복 체크
 	static int[] dx = {1, -1, 0, 0};
 	static int[] dy = {0, 0, 1, -1};
 	static int min = Integer.MAX_VALUE;
 	
 	static public class Position {
-		int x, y, len;//��ǥ�� ������� �ٸ� ����
+		int x, y, len;//좌표와 현재까지 다리 길이
 		public Position(int x, int y, int len) {
 			this.x = x;
 			this.y = y;
