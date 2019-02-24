@@ -5,12 +5,12 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /*
- * bfs Å½»öÀ¸·Î ¾ÈÀüÇÏÁö ¾ÊÀº ±¸¿ªÀ» ¸ðµÎ Ã£°í Ã¼Å© µÇÁö ¾ÊÀº ±¸¿ªÀ» P·Î ¹Ù²Û µÚ¿¡ Ãâ·ÂÇÑ´Ù
- * ´Á´ë°¡ ºùÆÇÀ» ¹â¾ÒÀ» °æ¿ì ¿©·¯ ¹æÇâÀ¸·Î ¹âÀ» ¼ö ÀÖ±â ¶§¹®¿¡ ºùÆÇÀÇ Áß°£Àº ¹æ¹® Ã¼Å©¸¦ ÇÏÁö ¾Ê´Â´Ù
- * ºùÆÇÀ» ¹â¾Æ¼­ »ê¿¡ ¸·Èù °æ¿ì¿¡¸¸ ºùÆÇÀÇ ³¡À» ¹æ¹® Ã¼Å© ÇÑ´Ù
+ * bfs íƒìƒ‰ìœ¼ë¡œ ì•ˆì „í•˜ì§€ ì•Šì€ êµ¬ì—­ì„ ëª¨ë‘ ì°¾ê³  ì²´í¬ ë˜ì§€ ì•Šì€ êµ¬ì—­ì„ Pë¡œ ë°”ê¾¼ ë’¤ì— ì¶œë ¥í•œë‹¤
+ * ëŠ‘ëŒ€ê°€ ë¹™íŒì„ ë°Ÿì•˜ì„ ê²½ìš° ì—¬ëŸ¬ ë°©í–¥ìœ¼ë¡œ ë°Ÿì„ ìˆ˜ ìžˆê¸° ë•Œë¬¸ì— ë¹™íŒì˜ ì¤‘ê°„ì€ ë°©ë¬¸ ì²´í¬ë¥¼ í•˜ì§€ ì•ŠëŠ”ë‹¤
+ * ë¹™íŒì„ ë°Ÿì•„ì„œ ì‚°ì— ë§‰ížŒ ê²½ìš°ì—ë§Œ ë¹™íŒì˜ ëì„ ë°©ë¬¸ ì²´í¬ í•œë‹¤
  * */
 
-public class Main_16441_¾Æ±âµÅÁö¿Í´Á´ë {
+public class Main_16441_ì•„ê¸°ë¼ì§€ì™€ëŠ‘ëŒ€ {
 	static int N, M;
 	static char[][] map;
 	static boolean[][] visited;
@@ -33,22 +33,22 @@ public class Main_16441_¾Æ±âµÅÁö¿Í´Á´ë {
 		for(int i = 0; i < 4; i++) {
 			int nx = cur.x + dx[i];
 			int ny = cur.y + dy[i];
-			if(!visited[nx][ny] && map[nx][ny] == '.') {//¹æ¹®ÇÏÁö ¾ÊÀº ÃÊ¿øÀÎ °æ¿ì
+			if(!visited[nx][ny] && map[nx][ny] == '.') {//ë°©ë¬¸í•˜ì§€ ì•Šì€ ì´ˆì›ì¸ ê²½ìš°
 				visited[nx][ny] = true;
 				q.add(new P(nx, ny));
-			} else if(map[nx][ny] == '+') {//ºùÆÇÀ» ¹âÀº °æ¿ì
-                while(map[nx][ny] == '+') {//ºùÆÇÀÌ ¾Æ´Ò ¶§±îÁö ÀüÁø
-                    nx += dx[i];
-                    ny += dy[i];
-                }
-                if(map[nx][ny] == '#') {//»êÀ» ¸¸³­ °æ¿ì ÇÑ Ä­ µÚ·Î ÈÄÁø
-                    nx -= dx[i];
-                    ny -= dy[i];
-                }
-                if(!visited[nx][ny]) {//¹æ¹®ÇÏÁö ¾ÊÀº °æ¿ì Å¥¿¡ Ãß°¡ (»êÀ» ¸¸³­ ºùÆÇÀÇ ³¡ ¶Ç´Â ÃÊ¿øÀÌ ¿Ã ¼ö ÀÖ´Ù)
-                    visited[nx][ny] = true;
-                    q.add(new P(nx, ny));
-                }
+			} else if(map[nx][ny] == '+') {//ë¹™íŒì„ ë°Ÿì€ ê²½ìš°
+				while(map[nx][ny] == '+') {//ë¹™íŒì´ ì•„ë‹ ë•Œê¹Œì§€ ì „ì§„
+				    nx += dx[i];
+				    ny += dy[i];
+				}
+				if(map[nx][ny] == '#') {//ì‚°ì„ ë§Œë‚œ ê²½ìš° í•œ ì¹¸ ë’¤ë¡œ í›„ì§„
+				    nx -= dx[i];
+				    ny -= dy[i];
+				}
+				if(!visited[nx][ny]) {//ë°©ë¬¸í•˜ì§€ ì•Šì€ ê²½ìš° íì— ì¶”ê°€ (ì‚°ì„ ë§Œë‚œ ë¹™íŒì˜ ë ë˜ëŠ” ì´ˆì›ì´ ì˜¬ ìˆ˜ ìžˆë‹¤)
+				    visited[nx][ny] = true;
+				    q.add(new P(nx, ny));
+				}
 			}
 		}
 		
@@ -68,18 +68,18 @@ public class Main_16441_¾Æ±âµÅÁö¿Í´Á´ë {
 			String str = br.readLine();
 			for(int j = 0; j < M; j++) {
 				map[i][j] = str.charAt(j);
-				if(map[i][j] == 'W') {//´Á´ë À§Ä¡ ÀúÀå
+				if(map[i][j] == 'W') {//ëŠ‘ëŒ€ ìœ„ì¹˜ ì €ìž¥
 					visited[i][j] = true;
 					q.add(new P(i, j));
-				} else if(map[i][j] == '#')//»êÀº ¹æ¹® Ã¼Å©
-                    visited[i][j] = true;
+				} else if(map[i][j] == '#')//ì‚°ì€ ë°©ë¬¸ ì²´í¬
+                    			visited[i][j] = true;
 			}
 		}
 		
 		while(!q.isEmpty())
 			bfs();
 		
-		//°á°ú Ãâ·Â
+		//ê²°ê³¼ ì¶œë ¥
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < N; i++) {
 			for(int j = 0; j < M; j++) {
