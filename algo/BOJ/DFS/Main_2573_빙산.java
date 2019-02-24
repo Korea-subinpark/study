@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 /*
@@ -15,7 +16,7 @@ public class Main_2573_빙산 {
 	static int N, M;
 	static int[][] map;
 	static boolean[][] visited;
-	static LinkedList<Ice> list;
+	static Queue<Ice> list;//각 빙산의 좌표와 높이, 인접한 바닷물의 수를 저장하는 큐
 	static int num, area, year;//빙산의 수, 빙산 덩어리의 수, 지나간 시간
 	
 	static int[] dx = {1, -1, 0, 0};
@@ -92,15 +93,13 @@ public class Main_2573_빙산 {
 			}
 			
 			//빙산 녹이기
-			for(int i = 0; i < list.size(); i++) {
-				Ice temp = list.get(i);
+			while(!list.isEmpty()) {
+				Ice temp = list.poll();
 				if(temp.h <= temp.num) {//녹아서 사라질 경우
 					map[temp.x][temp.y] = 0;
 					num--;
-					list.remove(i--);
 				} else {
 					map[temp.x][temp.y] = temp.h - temp.num;
-					list.remove(i--);
 				}
 			}
 			
