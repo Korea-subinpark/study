@@ -10,7 +10,7 @@
 <tr>
 <td>Employee Management Program</td>
 <td>2019.02.01</td>
-<td>-Java 문법 이해도 점검<br>-Project 문서화 능력 향상<br>
+<td>-Java 문법 이해도 점검<br>
 -학습한 내용들을 연계해 보기 위하여 진행</td>
 </tr>
 <tr>
