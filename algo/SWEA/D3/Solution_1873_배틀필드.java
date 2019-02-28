@@ -2,13 +2,13 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_1873_¹èÆ²ÇÊµå_¹Ú¼öºó {
-	static int H, W, L;//¸ÊÀÇ Height, Width, ¸í·É¹®ÀÇ ±æÀÌ
+public class Solution_1873_ë°°í‹€í•„ë“œ_ë°•ìˆ˜ë¹ˆ {
+	static int H, W, L;//ë§µì˜ Height, Width, ëª…ë ¹ë¬¸ì˜ ê¸¸ì´
 	static char[][] map;
 	static final int[] dx = {-1, 1, 0, 0};
 	static final int[] dy = {0, 0, -1, 1};
 	
-	public static class Tank {//ÀüÂ÷ÀÇ ÇöÀç À§Ä¡¿Í ¹æÇâ ÀúÀå
+	public static class Tank {//ì „ì°¨ì˜ í˜„ì¬ ìœ„ì¹˜ì™€ ë°©í–¥ ì €ì¥
 		int x, y;
 		char dir;
 		public Tank(int x, int y, char dir) {
@@ -18,13 +18,13 @@ public class Solution_1873_¹èÆ²ÇÊµå_¹Ú¼öºó {
 		}
 	}
 	
-	public static boolean inRange(int x, int y) {//¹üÀ§ ¾È¿¡ ÀÖ´Â Áö È®ÀÎ
+	public static boolean inRange(int x, int y) {//ë²”ìœ„ ì•ˆì— ìˆëŠ” ì§€ í™•ì¸
 		if(x >= 0 && x < H && y >= 0 && y < W)
 			return true;
 		return false;
 	}
 	
-	public static void go(Tank t) {//ÅÊÅ©¸¦ ÇÑ Ä­ ÀÌµ¿½ÃÅ°´Â ÇÔ¼ö
+	public static void go(Tank t) {//íƒ±í¬ë¥¼ í•œ ì¹¸ ì´ë™ì‹œí‚¤ëŠ” í•¨ìˆ˜
 		map[t.x][t.y] = t.dir;
 		int dir = 0;
 		switch(t.dir) {
@@ -53,41 +53,41 @@ public class Solution_1873_¹èÆ²ÇÊµå_¹Ú¼öºó {
 		}
 	}
 	
-	public static void shoot(Tank t, int shootDir) {//Æ÷ÅºÀ» ½úÀ» ¶§
+	public static void shoot(Tank t, int shootDir) {//í¬íƒ„ì„ ìˆì„ ë•Œ
 		int nx = t.x + dx[shootDir];
 		int ny = t.y + dy[shootDir];
-		while(inRange(nx, ny)) {//¹üÀ§¸¦ ¹ş¾î³¯ ¶§±îÁö ¹Ù¶óº¸°í ÀÖ´Â ¹æÇâ¿¡ º®ÀÌ ÀÖ´ÂÁö È®ÀÎ
+		while(inRange(nx, ny)) {//ë²”ìœ„ë¥¼ ë²—ì–´ë‚  ë•Œê¹Œì§€ ë°”ë¼ë³´ê³  ìˆëŠ” ë°©í–¥ì— ë²½ì´ ìˆëŠ”ì§€ í™•ì¸
 			if(map[nx][ny] == '*') {
 				map[nx][ny] = '.';
 				break;
 			} else if(map[nx][ny] == '#')
 				break;
-			nx += dx[shootDir];//º®ÀÌ ¾Æ´Ò °æ¿ì °è¼Ó ÀüÁø
+			nx += dx[shootDir];//ë²½ì´ ì•„ë‹ ê²½ìš° ê³„ì† ì „ì§„
 			ny += dy[shootDir];
 		}
 	}
 	
 	public static void simulation(String s, Tank t) {
-		for(int i = 0; i < L; i++) {//¸í·É¹® ±æÀÌ¸¸Å­ ¹İº¹
+		for(int i = 0; i < L; i++) {//ëª…ë ¹ë¬¸ ê¸¸ì´ë§Œí¼ ë°˜ë³µ
 			switch(s.charAt(i)) {
-				case 'U'://À§·Î ÀÌµ¿
+				case 'U'://ìœ„ë¡œ ì´ë™
 					t.dir = '^';
 					go(t);
 					break;
-				case 'D'://¾Æ·¡·Î ÀÌµ¿
+				case 'D'://ì•„ë˜ë¡œ ì´ë™
 					t.dir = 'v';
 					go(t);
 					break;
-				case 'L'://¿ŞÂÊÀ¸·Î ÀÌµ¿
+				case 'L'://ì™¼ìª½ìœ¼ë¡œ ì´ë™
 					t.dir = '<';
 					go(t);
 					break;
-				case 'R'://¿À¸¥ÂÊÀ¸·Î ÀÌµ¿
+				case 'R'://ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™
 					t.dir = '>';
 					go(t);
 					break;
 					
-				case 'S'://Æ÷Åº ¹ß»ç
+				case 'S'://í¬íƒ„ ë°œì‚¬
 					int shootDir = 0;
 					switch(t.dir) {
 						case '^':
@@ -131,16 +131,16 @@ public class Solution_1873_¹èÆ²ÇÊµå_¹Ú¼öºó {
 				for(int j = 0; j < W; j++) {
 					map[i][j] = row.charAt(j);
 					if(map[i][j] == '>' || map[i][j] == '<' || map[i][j] == '^' || map[i][j] == 'v')
-						t = new Tank(i, j, map[i][j]);//ÅÊÅ©ÀÇ ÇöÀç À§Ä¡¿Í ¹æÇâ ÀúÀå
+						t = new Tank(i, j, map[i][j]);//íƒ±í¬ì˜ í˜„ì¬ ìœ„ì¹˜ì™€ ë°©í–¥ ì €ì¥
 				}
 			}
 			
 			L = Integer.parseInt(br.readLine());
 			String s = br.readLine();
-			//½Ã¹Ä·¹ÀÌ¼Ç ÁøÇà
+			//ì‹œë®¬ë ˆì´ì…˜ ì§„í–‰
 			simulation(s, t);
 			
-			//°á°ú Ãâ·Â
+			//ê²°ê³¼ ì¶œë ¥
 			StringBuilder sb = new StringBuilder();
 			sb.append("#" + tc + " ");
 			for(int i = 0; i < H; i++) {
