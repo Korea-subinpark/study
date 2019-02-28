@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_1873_배틀필드_박수빈 {
+public class Solution_1873_배틀필드 {
 	static int H, W, L;//맵의 Height, Width, 명령문의 길이
 	static char[][] map;
 	static final int[] dx = {-1, 1, 0, 0};
