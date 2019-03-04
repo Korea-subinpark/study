@@ -1,10 +1,13 @@
 # study
 ## 1. 알고리즘 스터디
   * 백준 온라인 저지
-    * 알고리즘 별로 분류
+    * 알고리즘 별 분류
   * sw expert academy
-    * 난이도 별로 분류
+    * 난이도 별 분류
   * Programmers
+    * Kakao blind 채용 기출 문제
+  * Jungol
+    * 알고리즘 별 분류
   
 ## 2. Java
 
