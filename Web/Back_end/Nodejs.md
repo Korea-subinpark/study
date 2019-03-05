@@ -43,3 +43,25 @@
 |웹 서버가 내장|서버 규모가 커지면 관리가 어려움|
 |JavaScript를 사용하기 때문에 JSON 형식을 다루기 쉬움|CPU 연산이 많으면 블로킹이 발생해 비효율적|
 ||이미지나 비디오 처리, 대규모 데이터 처리에는 부적합|
+
+## Node 내장 객체
+* global
+    * 브라우저의 window와 같은 전역 객체
+    * 모든 파일에서 접근 가능
+    * 프로젝트 규모가 커지면 어떤 파일에서 수정했는지 알 수 없기 때문에 남용하지 않아야 한다
+* console
+    * 주로 디버깅에 사용
+    * 시간 측정 `colsole.time`, `console.timeEnd`
+    * 콘솔 출력 `console.log`
+    * 에러 출력 `console.error`
+* 타이머
+    * `setImmediate(콜백 함수)` : 콜백 함수를 즉시 실행
+    * `setInterval(콜백 함수, 밀리초)` : 주어진 밀리초마다 콜백 함수를 반복 실행
+* `__filename`, `__dirname`
+    * 파일과 디렉토리 경로를 알아낼 때 사용
+* process
+    * 현재 실행되고 있는 노드 프로세스에 대한 정보를 가지고 있다
+    * `process.env` : 서비스의 중요한 키를 저장 (`SECRET_ID`, `SECRET_CODE`)
+    * `process.nextTick(콜백 함수)` : 다른 콜백 함수들보다 우선으로 처리 (`promise`도 다른 콜백보다 우선 처리 된다), nextTick과 promise를 `Microtask`라고 부른다
+    * `Microtask`를 재귀 호출 하게 되면 다른 콜백 함수들이 실행되지 않을 수도 있다
+    * `process.exit()` : 실행 중인 노드 프로세스 종료, 서버에는 거의 사용하지 않는다
