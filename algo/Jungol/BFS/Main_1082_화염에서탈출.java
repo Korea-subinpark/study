@@ -4,11 +4,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_1082_È­¿°¿¡¼­Å»Ãâ {
+public class Main_1082_í™”ì—¼ì—ì„œíƒˆì¶œ {
 	static int R, C;
 	static char[][] map;
-	static Obj start;//Ãâ¹ß ÁöÁ¡
-	static boolean[][] visited;//»ç¶÷ÀÌ °¬´ø °÷
+	static Obj start;//ì¶œë°œ ì§€ì 
+	static boolean[][] visited;//ì‚¬ëŒì´ ê°”ë˜ ê³³
 	static Queue<Obj> q;
 	static int min = Integer.MAX_VALUE;
 	
@@ -17,7 +17,7 @@ public class Main_1082_È­¿°¿¡¼­Å»Ãâ {
 	
 	public static class Obj {
 		int x, y, cnt;
-		boolean fire;//ºÒÀÌ¸é true
+		boolean fire;//ë¶ˆì´ë©´ true
 		public Obj(int x, int y, int cnt, boolean fire) {
 			this.x = x;
 			this.y = y;
@@ -34,31 +34,31 @@ public class Main_1082_È­¿°¿¡¼­Å»Ãâ {
 	
 	public static void bfs() {
 		Obj cur = q.poll();
-		if(cur.fire) {//ºÒÀÎ °æ¿ì
-			for(int i = 0; i < 4; i++) {//ÁÖº¯ ¼øÈ¸
+		if(cur.fire) {//ë¶ˆì¸ ê²½ìš°
+			for(int i = 0; i < 4; i++) {//ì£¼ë³€ ìˆœíšŒ
 				int nx = cur.x + dx[i];
 				int ny = cur.y + dy[i];
-				if(inRange(nx, ny) && map[nx][ny] == '.') {//ÆòÁö¶ó¸é ºÒ ¿Å°ÜºÙÀÌ±â
+				if(inRange(nx, ny) && map[nx][ny] == '.') {//í‰ì§€ë¼ë©´ ë¶ˆ ì˜®ê²¨ë¶™ì´ê¸°
 					map[nx][ny] = '*';
 					q.add(new Obj(nx, ny, 0, true));
 				}
 			}
-		} else {//»ç¶÷ÀÎ °æ¿ì
+		} else {//ì‚¬ëŒì¸ ê²½ìš°
 			if(cur.cnt + 1 > min)
 				return;
-			for(int i = 0; i < 4; i++) {//ÁÖº¯ ¼øÈ¸
+			for(int i = 0; i < 4; i++) {//ì£¼ë³€ ìˆœíšŒ
 				int nx = cur.x + dx[i];
 				int ny = cur.y + dy[i];
-                if(inRange(nx, ny)) {
-				    if(!visited[nx][ny] && map[nx][ny] == '.') {//¾ÆÁ÷ ¹æ¹®ÇÏÁö ¾ÊÀº ÆòÁö¸é ÀÌµ¿
+                		if(inRange(nx, ny)) {
+				    if(!visited[nx][ny] && map[nx][ny] == '.') {//ì•„ì§ ë°©ë¬¸í•˜ì§€ ì•Šì€ í‰ì§€ë©´ ì´ë™
 					    visited[nx][ny] = true;
 					    q.add(new Obj(nx, ny, cur.cnt + 1, false));
-				    } else if(map[nx][ny] == 'D') {//Áı¿¡ µµÂøÇÑ °æ¿ì ÃÖ¼Ú°ª °»½Å
+				    } else if(map[nx][ny] == 'D') {//ì§‘ì— ë„ì°©í•œ ê²½ìš° ìµœì†Ÿê°’ ê°±ì‹ 
 				    	if(cur.cnt < min)
 					    	min = cur.cnt;
 					    return;
 				    }
-                }
+                		}
 			}
 		}
 	}
