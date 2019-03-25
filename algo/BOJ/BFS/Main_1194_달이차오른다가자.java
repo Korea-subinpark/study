@@ -41,31 +41,19 @@ public class Main_1194_달이차오른다가자 {
 						q.clear();
 						break;
 					}
-					if(map[nx][ny] == '#') continue;
+					if(map[nx][ny] == '#') continue;//벽인 경우 continue
 					
-					if('a' <= map[nx][ny] && map[nx][ny] <= 'f') {//열쇠가 떨어진 곳
-						Obj n = new Obj(nx, ny, o.cnt + 1);
-						System.arraycopy(o.key, 0, n.key, 0, 6);
+					Obj n = new Obj(nx, ny, o.cnt + 1);
+					System.arraycopy(o.key, 0, n.key, 0, 6);
+					
+					if('a' <= map[nx][ny] && map[nx][ny] <= 'f')//열쇠가 떨어진 곳
 						n.key[map[nx][ny] - 'a'] = 1;
-						if(!visited[nx][ny][n.key[0]][n.key[1]][n.key[2]][n.key[3]][n.key[4]][n.key[5]]) {
-							visited[nx][ny][n.key[0]][n.key[1]][n.key[2]][n.key[3]][n.key[4]][n.key[5]] = true;
-							q.add(n);
-						}
-					} else {//평지나 문이 있는 곳
-						if(!visited[nx][ny][o.key[0]][o.key[1]][o.key[2]][o.key[3]][o.key[4]][o.key[5]]) {
-							visited[nx][ny][o.key[0]][o.key[1]][o.key[2]][o.key[3]][o.key[4]][o.key[5]] = true;
-							if(map[nx][ny] == '.') {//평지일 경우
-								Obj n = new Obj(nx, ny, o.cnt + 1);
-								System.arraycopy(o.key, 0, n.key, 0, 6);
-								q.add(n);
-							} else if('A' <= map[nx][ny] && map[nx][ny] <= 'F') {//문이 있는 경우
-								if(o.key[map[nx][ny] - 'A'] == 1) {//맞는 열쇠가 있는 경우
-									Obj n = new Obj(nx, ny, o.cnt + 1);
-									System.arraycopy(o.key, 0, n.key, 0, 6);
-									q.add(n);
-								}
-							}
-						}
+					else if('A' <= map[nx][ny] && map[nx][ny] <= 'F')//문이 있는 곳
+						if(o.key[map[nx][ny] - 'A'] == 0) continue;//문에 맞는 열쇠가 없는 경우 continue
+					
+					if(!visited[nx][ny][o.key[0]][o.key[1]][o.key[2]][o.key[3]][o.key[4]][o.key[5]]) {//아직 방문하지 않은 곳
+						visited[nx][ny][o.key[0]][o.key[1]][o.key[2]][o.key[3]][o.key[4]][o.key[5]] = true;
+						q.add(n);
 					}
 				}
 			}
