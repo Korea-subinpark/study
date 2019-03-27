@@ -27,6 +27,10 @@
         * 스크립트렛(scriptlet)
             * java 코드를 기술하는 영역
             * servlet에서 코드 양이 많이지기 때문에 사용을 지양
+        * EL(Expression Language)
+            * JSP 2.0에서 추가
+            * 간단한 문법으로 JSP페이지 내의 객체에 접근 가능
+            * `${expr}`
         * 선언과 스크립트렛에서 변수 선언했을 때 차이점
             ```jsp
                 <%!
@@ -60,4 +64,5 @@
                         {<jsp:param ... />}*
                     </jsp:forward>
                     ```
-            
+
+---
