@@ -53,7 +53,10 @@
     * bin, hex, oct
     * repeat
     * replace(문자열, 타겟 문자열, 대체할 문자열)
-    * curdate, curtime, now, sysdate, year, month, dayofmonth
+    * curdate, curtime, now, sysdate, year, month, dayofmonth, datediff
+    * if(조건식, '참일 때', '거짓일때');
+        * ex) `select if(100 > 200, 'true', 'false');`
+    
 
 [mySQL api](https://dev.mysql.com/doc/refman/8.0/en/)
 
