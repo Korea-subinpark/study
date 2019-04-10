@@ -27,3 +27,33 @@
 * 애트리뷰트, 필드
 * 튜플, 레코드
 
+---
+
+### DML
+* select 문
+    * select [DISTINCT | ALL] - 기본값 ALL, 중복값 제거는 DISTINCT
+    * from - 추출에 필요한 테이블 (MySQL은 없어도 된다)
+    * as - alias(생략 가능)
+    * where - 조건
+    * group by - 그룹의 기준
+    * having - 그룹의 조건
+    * order by - 정렬
+    * limit - 원하는 만큼 출력
+
+* 연산자 : in, between, is, like
+
+* 함수
+    * 데이터에 대한 계산, 데이터를 다른 형식으로 변환
+    * count, sum, min, max, avg
+    * concat, rpad, lpad
+    * ceil, round, floor
+    * date_format - 날짜 형식 변환
+    * case - data type 변환
+    * format - 소수점 자리수 지정, 1000단위마다 ','
+    * bin, hex, oct
+    * repeat
+    * replace(문자열, 타겟 문자열, 대체할 문자열)
+    * curdate, curtime, now, sysdate, year, month, dayofmonth
+
+[mySQL api](https://dev.mysql.com/doc/refman/8.0/en/)
+
