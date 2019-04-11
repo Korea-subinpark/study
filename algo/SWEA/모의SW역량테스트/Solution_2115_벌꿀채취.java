@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_2115_¹ú²ÜÃ¤Ãë {
+public class Solution_2115_ë²Œê¿€ì±„ì·¨ {
 	static int N, M, C, max;
 	static int[][] map;
 	static boolean[] visited;
@@ -12,35 +12,31 @@ public class Solution_2115_¹ú²ÜÃ¤Ãë {
 	}
 	
 	public static void dfs(int[] arr, int depth, int sum, int sqrSum) {
-		if(depth > M)//¸ðµç ¹úÅëÀ» ¼øÈ¸ÇÑ °æ¿ì ¹ÝÈ¯
+		if(depth == M) {//ëª¨ë“  ë²Œí†µì„ ìˆœíšŒí•œ ê²½ìš°
+			if(max < sqrSum)
+				max = sqrSum;
 			return;
-		if(max < sqrSum)//ÃÖ´ë ¼öÀÍ ¾÷µ¥ÀÌÆ®
-			max = sqrSum;
-		
-		for(int i = 0; i < M; i++) {
-			if(!visited[i]) {//¾ÆÁ÷ Ã¤ÃëÇÏÁö ¾ÊÀº ¹úÅëÀÎ °æ¿ì
-				visited[i] = true;
-				if(sum + arr[i] <= C)//Ã¤ÃëÇÒ ¼ö ÀÖ´Â ÃÖ´ë·®À» ³ÑÁö ¾Ê´Â °æ¿ì
-					dfs(arr, depth + 1, sum + arr[i], sqrSum + arr[i] * arr[i]);
-				visited[i] = false;
-			}
 		}
+
+		if(sum + arr[depth] <= C)//ì±„ì·¨í•  ìˆ˜ ìžˆëŠ” ìµœëŒ€ëŸ‰ì„ ë„˜ì§€ ì•ŠëŠ” ê²½ìš°
+		    dfs(arr, depth + 1, sum + arr[depth], sqrSum + arr[depth] * arr[depth]);//í˜„ìž¬ ë²Œí†µì—ì„œ ì±„ì·¨í–ˆì„ ë•Œ
+		dfs(arr, depth + 1, sum, sqrSum);//í˜„ìž¬ ë²Œí†µì—ì„œ ì±„ì·¨í•˜ì§€ ì•Šì•˜ì„ ë•Œ
 	}
 	
 	public static int chk(int x, int y, int x2, int y2) {
 		int[] a = new int[M];
 		int[] b = new int[M];
-		for(int i = 0; i < M; i++) {//Ã¤ÃëÇÒ ¹úÅë º¹»ç
+		for(int i = 0; i < M; i++) {//ì±„ì·¨í•  ë²Œí†µ ë³µì‚¬
 			a[i] = map[x][y + i];
 			b[i] = map[x2][y2 + i];
 		}
 		
 		int ret = 0;
 		max = 0;
-		dfs(a, 0, 0, 0);//Ã¹ ¹øÂ° ÀÏ²ÛÀÌ ÃÖ´ë·Î ¾òÀ» ¼ö ÀÖ´Â ¼öÀÍ
+		dfs(a, 0, 0, 0);//ì²« ë²ˆì§¸ ì¼ê¾¼ì´ ìµœëŒ€ë¡œ ì–»ì„ ìˆ˜ ìžˆëŠ” ìˆ˜ìµ
 		ret += max;
 		max = 0;
-		dfs(b, 0, 0, 0);//µÎ ¹øÂ° ÀÏ²ÛÀÌ ÃÖ´ë·Î ¾òÀ» ¼ö ÀÖ´Â ¼öÀÍ
+		dfs(b, 0, 0, 0);//ë‘ ë²ˆì§¸ ì¼ê¾¼ì´ ìµœëŒ€ë¡œ ì–»ì„ ìˆ˜ ìžˆëŠ” ìˆ˜ìµ
 		ret += max;
 		
 		return ret;
@@ -70,9 +66,9 @@ public class Solution_2115_¹ú²ÜÃ¤Ãë {
 				for(int j = 0; j < N; j++) {
 					for(int k = 0; k < N; k++) {
 						for(int m = 0; m < N; m++) {
-							if(valid(i, j, k, m)) {//¹úÅëÀÌ ¼­·Î °ãÄ¡Áö ¾Ê´ÂÁö Ã¼Å©
+							if(valid(i, j, k, m)) {//ë²Œí†µì´ ì„œë¡œ ê²¹ì¹˜ì§€ ì•ŠëŠ”ì§€ ì²´í¬
 								int ret = chk(i, j, k, m);
-								if(ans < ret)//ÃÖ´ñ°ª ¾÷µ¥ÀÌÆ®
+								if(ans < ret)//ìµœëŒ“ê°’ ì—…ë°ì´íŠ¸
 									ans = ret;
 							}
 						}
