@@ -57,6 +57,45 @@
     * if(조건식, '참일 때', '거짓일때');
         * ex) `select if(100 > 200, 'true', 'false');`
     
+* insert, delete
 
-[mySQL api](https://dev.mysql.com/doc/refman/8.0/en/)
+### DDL
+* CREATE table
+    * 데이터 타입
+        |타입|정의|
+        |--|--|
+        |varchar(size)|가변 길이 문자열(1~255)|
+        |char(size)|고정 길이 문자열(1~65535)|
+        |decimal(p, s)|길이가 p인, 소수점 숫자가 s개|
+        |date|날짜와 시간|
+        |int|정수형|
+        |longtext|최대 4GB의 문자 데이터|
+        |json|json 형식|
+        |float|소수점 7자리까지 표현|
+        |real, double|소수점 15자리까지 표현|
 
+[mySQL 문서](https://dev.mysql.com/doc/refman/8.0/en/)
+
+### Key
+* 수퍼 키(super key)
+    * 유일성 만족, 최소성 만족하지 않는다
+* 후보 키(candidate key)
+    * 유일성 만족, 최소성 만족
+* 기본 키(primary key)
+    * 후보 키 중에서 선정된 키
+    * null 값을 가질 수 없다
+* 대체 키(alternate key)
+    * 후보 키 중에서 기본 키를 제외한 나머지
+* 외래 키(foreign key)
+    * 다른 릴레이션의 기본 키를 참조하는 속성들의 집합
+
+
+### join
+* cross join
+    * 모든 행에 대해 결합
+* inner join
+    * 공통되는 컬럼에 의해 결합
+* self join
+    * 한 개의 테이블을 두 개의 별도의 테이블처럼 이용
+    * ex) 자신의 매니저 정보
+* outer join
