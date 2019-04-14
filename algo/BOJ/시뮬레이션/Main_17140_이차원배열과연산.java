@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Main_17140_ÀÌÂ÷¿ø¹è¿­°ú¿¬»ê {
+public class Main_17140_ì´ì°¨ì›ë°°ì—´ê³¼ì—°ì‚° {
 	static int r, c, k;
 	static int maxR, maxC;
 	static int[][] map;
@@ -25,35 +25,35 @@ public class Main_17140_ÀÌÂ÷¿ø¹è¿­°ú¿¬»ê {
 	
 	public static void change(boolean flag) {
 		int update = 0;
-		if(flag) {//R¿¬»ê
+		if(flag) {//Rì—°ì‚°
 			for(int i = 1; i <= maxR; i++) {
 				PriorityQueue<P> q = new PriorityQueue<>();
-				int[] cnt = new int[200];
-				for(int j = 1; j <= maxC; j++) {//¸ÊÀ» 0À¸·Î ÃÊ±âÈ­ÇÏ¸ç ¼ıÀÚÄ«¿îÆ®
+				int[] cnt = new int[101];
+				for(int j = 1; j <= maxC; j++) {//ë§µì„ 0ìœ¼ë¡œ ì´ˆê¸°í™”í•˜ë©° ìˆ«ìì¹´ìš´íŠ¸
 					cnt[map[i][j]]++;
 					map[i][j] = 0;
 				}
-				for(int j = 1; j < cnt.length; j++) {//¿ì¼±¼øÀ§ Å¥¿¡ Æä¾î·Î ÀúÀå
+				for(int j = 1; j < cnt.length; j++) {//ìš°ì„ ìˆœìœ„ íì— í˜ì–´ë¡œ ì €ì¥
 					if(cnt[j] != 0)
 						q.add(new P(j, cnt[j]));
 				}
 				int m = 0;
-				while(!q.isEmpty()) {//¸Ê ¼öÁ¤
+				while(!q.isEmpty()) {//ë§µ ìˆ˜ì •
 					P cur = q.poll();
 					map[i][++m] = cur.num;
 					map[i][++m] = cur.cnt;
 					if(m == 100)
 						break;
 				}
-				if(update < m)//ÃÖ´ë ¿­ ¾÷µ¥ÀÌÆ®
+				if(update < m)//ìµœëŒ€ ì—´ ì—…ë°ì´íŠ¸
 					update = m;
 			}
-			maxC = update;//ÃÖ´ë ¿­ ¾÷µ¥ÀÌÆ®
+			maxC = update;//ìµœëŒ€ ì—´ ì—…ë°ì´íŠ¸
 			
-		} else {//C¿¬»ê
+		} else {//Cì—°ì‚°
 			for(int i = 1; i <= maxC; i++) {
 				PriorityQueue<P> q = new PriorityQueue<>();
-				int[] cnt = new int[200];
+				int[] cnt = new int[101];
 				for(int j = 1; j <= maxR; j++) {
 					cnt[map[j][i]]++;
 					map[j][i] = 0;
@@ -96,11 +96,11 @@ public class Main_17140_ÀÌÂ÷¿ø¹è¿­°ú¿¬»ê {
 		int ans = -1;
 		
 		for(int time = 0; time <= 100; time++) {
-			if(map[r][c] == k) {//°ªÀÌ ³ª¿Ô´ÂÁö È®ÀÎ
+			if(map[r][c] == k) {//ê°’ì´ ë‚˜ì™”ëŠ”ì§€ í™•ì¸
 				ans = time;
 				break;
 			}
-			if(maxR >= maxC) {//ÃÖ´ë Çà°ú ¿­¿¡ µû¶ó ¿¬»ê ¼öÇà
+			if(maxR >= maxC) {//ìµœëŒ€ í–‰ê³¼ ì—´ì— ë”°ë¼ ì—°ì‚° ìˆ˜í–‰
 				change(true);
 			} else {
 				change(false);
