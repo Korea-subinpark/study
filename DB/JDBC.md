@@ -125,3 +125,18 @@ public class JDBCPre {
 }
 
 ```
+
+## ResultSet에서 레코드 포인터 변경하는 함수
+1. rs.next()
+2. rs.previous()
+3. rs.first()
+4. rs.last()
+4. rs.absolute(idx)
+
+
+
+## Connection Pool
+* 작업중에서 가장 오래 걸리는 Connection 작업을 빠르게 하기 위해 생성
+* Connection이 필요할 때 Connection Pool에서 빌려와서 사용
+
+* JNDI (Java Naming & Directing Interface)
