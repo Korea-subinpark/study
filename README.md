@@ -15,4 +15,4 @@
   * 프론트 엔드
     * HTML, CSS, JavaScript, JQuery 등
   * 백 엔드
-    * Node.js, Servlet, JSP
+    * Node.js, Servlet, JSP, 
