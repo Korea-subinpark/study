@@ -46,4 +46,22 @@
     * runtime
         * proxy 객체가 요청을 먼저 받아서 weaving 처리
 
-        
+
+
+---
+
+## TransactionManager
+* xml파일에 bean 등록 후 @Transactional 붙여준다
+
+
+
+---
+## Spring MVC
+
+|구성요소|설명|
+|---|---|
+|DispatcherServlet|요청을 전달 받는다|
+|HandlerMapping||
+|Controller||
+|ViewResolve||
+|View||
