@@ -61,7 +61,9 @@
 |구성요소|설명|
 |---|---|
 |DispatcherServlet|요청을 전달 받는다|
-|HandlerMapping||
-|Controller||
-|ViewResolve||
-|View||
+|HandlerMapping|클라이언트의 요청 URL을 어떤 Controller가 처리할지 결정|
+|Controller|요청을 처리한 뒤 결과를 DispatcherServlet에 알림|
+|ViewResolve|Controller의 처리 결과를 보여줄 View 결정|
+|View|응답 화면 생성|
+
+
