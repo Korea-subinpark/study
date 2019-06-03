@@ -4,13 +4,16 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = require('passport');
 require('dotenv').config();//암호화를 위한 비밀키를 보관하는 파일 .env
 
 const pageRouter = require('./routes/page');
 const { sequelize } = require('./models');
+const passportConfig = require('./passport');
 
 const app = express();
 sequelize.sync();
+passportConfig(passport);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -31,6 +34,8 @@ app.use(session({
     },
 }));
 app.use(flash());
+app.use(passport.initialize()); //요청(req 객체)에 passport 설정을 심는다
+app.use(passport.session()); //req.session 객체에 passport 정보를 저장
 
 app.use('/', pageRouter);
 
