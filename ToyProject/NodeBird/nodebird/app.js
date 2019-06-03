@@ -7,8 +7,10 @@ const flash = require('connect-flash');
 require('dotenv').config();//암호화를 위한 비밀키를 보관하는 파일 .env
 
 const pageRouter = require('./routes/page');
+const { sequelize } = require('./models');
 
 const app = express();
+sequelize.sync();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
