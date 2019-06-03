@@ -10,7 +10,7 @@ const pageRouter = require('./routes/page');
 
 const app = express();
 
-app.set('views', path.join(__dirname, 'view'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.set('port', process.env.PORT || 8001);
 
