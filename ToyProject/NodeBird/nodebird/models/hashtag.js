@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => (
             allowNull: false,
             unique: true,
         },
-    }, {
+    }, { //createAt, updateAt, deleteAt 컬럼 생성
         timestamps: true,
         paranoid: true,
     })
