@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => (
             type: DataTypes.STRING(200),
             allowNull: true,
         },
-    }, { //createAt, updateAt, deleteAt 컬럼 생성
-        timestamps: true,
-        paranoid: true,
+    }, {
+        timestamps: true, //createAt, updateAt
+        paranoid: true, //deleteAt
     })
 );
