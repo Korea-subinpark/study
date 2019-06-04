@@ -7,8 +7,19 @@ module.exports = (passport) => {
         done(null, user.id); //done 첫 번째 인자는 err 발생 시 사용, 사용자 정보를 모두 세션에 저장하면 용량이 커지고 데이터 일관성에 문제가 생기므로 id만 저장
     });
 
-    passport.deserializeUser((user, done) => { //세션에 저장한 id를 통해 사용자 정보 객체를 불러온다
-        User.find({ where: { id } })
+    passport.deserializeUser((id, done) => { //세션에 저장한 id를 통해 사용자 정보 객체를 불러온다
+        User.find({ 
+            where: { id },
+            include: [{
+                model: User,
+                attributes: ['id', 'nick'],
+                as: 'Followers',
+            }, {
+                model: User,
+                attributes: ['id', 'nick'],
+                as: 'Followings',
+            }],
+        })
             .then(user => done(null, user))
             .catch(err => done(err));
     });
