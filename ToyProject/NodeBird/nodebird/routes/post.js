@@ -62,10 +62,10 @@ router.get('/hashtag', async (req, res, next) => {
         const hashtag = await Hashtag.findOne({ where: { title: query } });
         let posts= [];
         if(hashtag) {
-            posts = await hashtag.getPosts({ include: [{ models: User }] });
+            posts = await hashtag.getPosts({ include: [{ model: User }] });
         }
         return res.render('main', {
-            title: `${query} | NodeBurd`,
+            title: `${query} | NodeBird`,
             user: req.user,
             twits: posts,
         });

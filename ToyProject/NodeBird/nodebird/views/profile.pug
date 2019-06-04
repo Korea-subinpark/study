@@ -7,6 +7,7 @@ block content
       if user.Followings
         for following in user.Followings
           div= following.nick
+            button.twit-follow 팔로잉끊기
     .followers.half
       h2 팔로워 목록
       if user.Followers
