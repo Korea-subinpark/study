@@ -8,6 +8,7 @@ const passport = require('passport');
 require('dotenv').config();//암호화를 위한 비밀키를 보관하는 파일 .env
 
 const pageRouter = require('./routes/page');
+const authRouter = require('./routes/auth');
 const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
@@ -38,6 +39,7 @@ app.use(passport.initialize()); //요청(req 객체)에 passport 설정을 심�
 app.use(passport.session()); //req.session 객체에 passport 정보를 저장
 
 app.use('/', pageRouter);
+app.use('/auth', authRouter);
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');
