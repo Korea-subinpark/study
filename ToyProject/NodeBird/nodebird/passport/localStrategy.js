@@ -9,7 +9,7 @@ module.exports = (passport) => {
         passwordField: 'password',
     }, async (email, password, done) => {
         try {
-            const exUser = await User.find({ where: { email } });
+            const exUser = await User.findOne({ where: { email } });
             if(exUser) { //이메일이 존재하는 경우
                 const result = await bcrypt.compare(password, exUser.password); //비밀번호 비교
                 if(result) { //비밀번호 일치

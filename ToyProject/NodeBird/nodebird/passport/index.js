@@ -8,7 +8,7 @@ module.exports = (passport) => {
     });
 
     passport.deserializeUser((id, done) => { //세션에 저장한 id를 통해 사용자 정보 객체를 불러온다
-        User.find({ 
+        User.findOne({ 
             where: { id },
             include: [{
                 model: User,

@@ -28,7 +28,7 @@ const upload = multer({
 });
 router.post('/img', isLoggedIn, upload.single('img'), (req, res) => { //이미지 업로드를 처리하는 라우터
     console.log(req.file);
-    res.json({ url: `\img\${req.file.filename}` });
+    res.json({ url: `/img/${req.file.filename}` });
 });
 
 const upload2 = multer();
@@ -59,7 +59,7 @@ router.get('/hashtag', async (req, res, next) => {
         return res.redirect('/');
     }
     try {
-        const hashtag = await Hashtag.find({ where: { title: query } });
+        const hashtag = await Hashtag.findOne({ where: { title: query } });
         let posts= [];
         if(hashtag) {
             posts = await hashtag.getPosts({ include: [{ models: User }] });
